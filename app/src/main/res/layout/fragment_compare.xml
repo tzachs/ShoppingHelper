@@ -14,7 +14,7 @@
         android:hint="Left product name (optional)"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginRight="45pt"
+        android:layout_marginRight="35pt"
         android:singleLine="true"
         />
 
@@ -25,7 +25,7 @@
         android:hint="Number of units"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextProductLeftName"
-        android:layout_marginRight="45pt"
+        android:layout_marginRight="35pt"
         android:inputType="numberDecimal"
         />
 
@@ -56,17 +56,17 @@
         android:hint="Total price"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextLeftGramPerUnit"
-        android:layout_marginRight="45pt"
+        android:layout_marginRight="35pt"
         android:inputType="numberDecimal"
         />
     <EditText
         android:id="@+id/editTextLeftDiscountOnSecondItem"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="2nd item discount (optional)"
+        android:hint="2nd item discount in % (optional)"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextLeftTotalPrice"
-        android:layout_marginRight="45pt"
+        android:layout_marginRight="35pt"
         android:inputType="numberDecimal"
         />
 
@@ -77,7 +77,7 @@
         android:hint="Right product name (optional)"
         android:layout_below="@+id/editTextLeftDiscountOnSecondItem"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="45pt"
+        android:layout_marginLeft="35pt"
         android:layout_marginTop="10pt"
         android:singleLine="true"
         />
@@ -88,7 +88,7 @@
         android:hint="Number of units"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextProductRightName"
-        android:layout_marginLeft="45pt"
+        android:layout_marginLeft="35pt"
         android:inputType="numberDecimal"
         />
 
@@ -99,7 +99,7 @@
         android:hint="Gram per unit"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextRightNumberOfUnits"
-        android:layout_marginLeft="45pt"
+        android:layout_marginLeft="35pt"
         android:inputType="numberDecimal"
         />
 
@@ -120,7 +120,7 @@
         android:hint="Total price"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextRightGramPerUnit"
-        android:layout_marginLeft="45pt"
+        android:layout_marginLeft="35pt"
         android:inputType="numberDecimal"
         />
 
@@ -128,10 +128,10 @@
         android:id="@+id/editTextRightDiscountOnSecondItem"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="2nd item discount (optional)"
+        android:hint="2nd item discount in % (optional)"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextRightTotalPrice"
-        android:layout_marginLeft="45pt"
+        android:layout_marginLeft="35pt"
         android:inputType="numberDecimal"
         />
 
