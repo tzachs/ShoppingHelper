@@ -1,0 +1,163 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity$PlaceholderFragment">
+
+    <EditText
+        android:id="@+id/editTextProductLeftName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Left product name (optional)"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="45pt"
+        android:singleLine="true"
+        />
+
+    <EditText
+        android:id="@+id/editTextLeftNumberOfUnits"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Number of units"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextProductLeftName"
+        android:layout_marginRight="45pt"
+        android:inputType="numberDecimal"
+        />
+
+    <EditText
+        android:id="@+id/editTextLeftGramPerUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Gram per unit"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextLeftNumberOfUnits"
+        android:inputType="numberDecimal"
+        />
+
+    <EditText
+        android:id="@+id/editTextLeftTotalWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/editTextProductLeftName"
+        android:layout_alignTop="@id/editTextLeftGramPerUnit"
+        android:layout_alignBottom="@id/editTextLeftGramPerUnit"
+        android:enabled="false"
+        />
+
+    <EditText
+        android:id="@+id/editTextLeftTotalPrice"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Total price"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextLeftGramPerUnit"
+        android:layout_marginRight="45pt"
+        android:inputType="numberDecimal"
+        />
+    <EditText
+        android:id="@+id/editTextLeftDiscountOnSecondItem"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="2nd item discount (optional)"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextLeftTotalPrice"
+        android:layout_marginRight="45pt"
+        android:inputType="numberDecimal"
+        />
+
+    <EditText
+        android:id="@+id/editTextProductRightName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Right product name (optional)"
+        android:layout_below="@+id/editTextLeftDiscountOnSecondItem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="45pt"
+        android:layout_marginTop="10pt"
+        android:singleLine="true"
+        />
+    <EditText
+        android:id="@+id/editTextRightNumberOfUnits"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Number of units"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextProductRightName"
+        android:layout_marginLeft="45pt"
+        android:inputType="numberDecimal"
+        />
+
+    <EditText
+        android:id="@+id/editTextRightGramPerUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Gram per unit"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextRightNumberOfUnits"
+        android:layout_marginLeft="45pt"
+        android:inputType="numberDecimal"
+        />
+
+    <EditText
+        android:id="@+id/editTextRightTotalWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/editTextProductRightName"
+        android:layout_alignTop="@id/editTextRightGramPerUnit"
+        android:layout_alignBottom="@id/editTextRightGramPerUnit"
+        android:enabled="false"
+        />
+
+    <EditText
+        android:id="@+id/editTextRightTotalPrice"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Total price"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextRightGramPerUnit"
+        android:layout_marginLeft="45pt"
+        android:inputType="numberDecimal"
+        />
+
+    <EditText
+        android:id="@+id/editTextRightDiscountOnSecondItem"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="2nd item discount (optional)"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextRightTotalPrice"
+        android:layout_marginLeft="45pt"
+        android:inputType="numberDecimal"
+        />
+
+    <Button
+        android:id="@+id/buttonCompare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextRightDiscountOnSecondItem"
+        android:layout_alignParentRight="true"
+        android:text="Compare"
+        />
+    <Button
+        android:id="@+id/buttonClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextRightDiscountOnSecondItem"
+        android:text="Clear"
+        />
+    <Button
+        android:id="@+id/buttonUndo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/buttonClear"
+        android:layout_alignTop="@+id/buttonClear"
+        android:text="Undo"
+        />
+
+</RelativeLayout>
+
