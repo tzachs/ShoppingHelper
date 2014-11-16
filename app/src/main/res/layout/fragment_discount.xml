@@ -1,13 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <EditText
+        android:id="@+id/editTextOriginalPrice"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Original Price"
+        android:layout_alignParentTop="true"
+        android:inputType="numberDecimal"
+        />
+
+    <EditText
+        android:id="@+id/editTextDiscount1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="1st discount in %"
+        android:layout_below="@+id/editTextOriginalPrice"
+        android:layout_alignRight="@+id/editTextDiscount2"
+        android:layout_alignParentLeft="true"
+        android:inputType="numberDecimal"
+
+        />
+
+    <TextView
+        android:id="@+id/textViewDiscount1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextDiscount1"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/editTextDiscount2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="2nd discount in % (Optional)"
+        android:layout_below="@+id/editTextDiscount1"
+        android:inputType="numberDecimal"
+        />
+
+    <TextView
+        android:id="@+id/textViewDiscount2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextDiscount2"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/editTextDiscount3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="3rd discount in % (Optional)"
+        android:layout_below="@+id/editTextDiscount2"
+        android:layout_alignRight="@+id/editTextDiscount2"
+        android:layout_alignParentLeft="true"
+        android:inputType="numberDecimal"
+        />
+
+    <TextView
+        android:id="@+id/textViewDiscount3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextDiscount3"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/textViewPriceAfterDiscount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextDiscount3"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="discount"
-        android:id="@+id/textView2"
-        android:layout_gravity="center_horizontal" />
-</LinearLayout>
+        />
+
+    <Button
+        android:id="@+id/buttonCalculateDiscount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculate Discount"
+        android:layout_below="@+id/textViewPriceAfterDiscount"
+        />
+
+</RelativeLayout>
