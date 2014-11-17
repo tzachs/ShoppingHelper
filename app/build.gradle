@@ -5,11 +5,11 @@ android {
     buildToolsVersion "20.0.0"
 
     defaultConfig {
-        applicationId "newshoppinghelper.tzachsolomon.com.shoppinghelper"
+        applicationId "com.tzachsolomon.newshoppinghelper"
         minSdkVersion 15
         targetSdkVersion 21
-        versionCode 1
-        versionName "1.0"
+        versionCode 200
+        versionName "2.0.0"
     }
     buildTypes {
         release {
