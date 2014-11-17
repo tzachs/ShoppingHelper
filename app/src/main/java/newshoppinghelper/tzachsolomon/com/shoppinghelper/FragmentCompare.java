@@ -1,6 +1,7 @@
 package newshoppinghelper.tzachsolomon.com.shoppinghelper;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,8 +26,6 @@ public class FragmentCompare extends Fragment implements View.OnClickListener, V
     private EditText editTextRightTotalPrice;
     private EditText editTextRightDiscountOnSecondItem;
     private EditText editTextRightTotalWeight;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,13 +66,13 @@ public class FragmentCompare extends Fragment implements View.OnClickListener, V
     private void initButtons(View rootView) {
         Button buttonCompare = (Button)rootView.findViewById(R.id.buttonCompare);
         buttonCompare.setOnClickListener(this);
+
+        // TODO: complete buttons undo and clear
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-//        ((MainActivity) activity).onSectionAttached(
-//                getArguments().getInt(ARG_SECTION_NUMBER));
     }
 
     @Override
@@ -142,19 +141,27 @@ public class FragmentCompare extends Fragment implements View.OnClickListener, V
             float compareLeft = leftTotalPrice / leftAmount;
             float compareRight = rightTotalPrice / rightAmount;
 
+            String message;
 
             if (compareLeft < compareRight) {
-                Toast.makeText(this.getActivity(), "Product " + leftProductName + " is cheaper", Toast.LENGTH_SHORT).show();
+                message =  "Product " + leftProductName + " is cheaper";
             } else if (compareRight < compareLeft) {
-                Toast.makeText(this.getActivity(), "Product " + rightProductName + " is cheaper", Toast.LENGTH_SHORT).show();
+                message =  "Product " + rightProductName + " is cheaper";
             } else {
-                Toast.makeText(this.getActivity(), "Both products are equal at price per value", Toast.LENGTH_SHORT).show();
+                message = "Both products are equal at price per value";
             }
+
+            // display the message
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+            alertDialogBuilder.setMessage(message).setTitle("Compare result");
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            alertDialog.show();
+
 
         }catch (NumberFormatException e){
 
         }
-
 
     }
 
