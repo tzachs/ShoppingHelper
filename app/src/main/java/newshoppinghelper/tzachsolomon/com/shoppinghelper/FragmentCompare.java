@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Stack;
+
 public class FragmentCompare extends Fragment implements View.OnClickListener, View.OnFocusChangeListener {
 
     private EditText editTextProductLeftName;
@@ -26,11 +28,19 @@ public class FragmentCompare extends Fragment implements View.OnClickListener, V
     private EditText editTextRightTotalPrice;
     private EditText editTextRightDiscountOnSecondItem;
     private EditText editTextRightTotalWeight;
+    private Button buttonCompare;
+    private Button buttonClear;
+    private Button buttonUndo;
+
+    private Stack<String> mUndo;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_compare, container, false);
+
+        mUndo = new Stack<String>();
 
         initEditTexts(rootView);
         initButtons(rootView);
@@ -64,10 +74,14 @@ public class FragmentCompare extends Fragment implements View.OnClickListener, V
     }
 
     private void initButtons(View rootView) {
-        Button buttonCompare = (Button)rootView.findViewById(R.id.buttonCompare);
+        buttonCompare = (Button)rootView.findViewById(R.id.buttonCompare);
         buttonCompare.setOnClickListener(this);
 
-        // TODO: complete buttons undo and clear
+        buttonClear = (Button)rootView.findViewById(R.id.buttonClear);
+        buttonClear.setOnClickListener(this);
+
+        buttonUndo = (Button)rootView.findViewById(R.id.buttonUndo);
+        buttonUndo.setOnClickListener(this);
     }
 
     @Override
@@ -81,7 +95,50 @@ public class FragmentCompare extends Fragment implements View.OnClickListener, V
             case R.id.buttonCompare:
                 compareItems();
                 break;
+
+            case R.id.buttonClear:
+                buttonClearClicked();
+                break;
+
+            case R.id.buttonUndo:
+                buttonUndoClicked();
+                break;
         }
+
+    }
+
+    private void buttonUndoClicked() {
+
+        if (!mUndo.isEmpty()){
+            editTextRightDiscountOnSecondItem.setText(mUndo.pop());
+            editTextLeftDiscountOnSecondItem.setText(mUndo.pop());
+            editTextRightTotalPrice.setText(mUndo.pop());
+            editTextRightGramPerUnit.setText(mUndo.pop());
+            editTextRightNumberOfUnits.setText(mUndo.pop());
+            editTextProductLeftName.setText(mUndo.pop());
+            editTextProductRightName.setText(mUndo.pop());
+            editTextLeftTotalPrice.setText(mUndo.pop());
+            editTextLeftGramPerUnit.setText(mUndo.pop());
+            editTextLeftNumberOfUnits.setText(mUndo.pop());
+            editTextProductLeftName.setText(mUndo.pop());
+        }
+    }
+
+    private void buttonClearClicked() {
+
+        editTextProductLeftName.setText("");
+        editTextLeftNumberOfUnits.setText("");
+        editTextLeftGramPerUnit.setText("");
+        editTextLeftTotalPrice.setText("");
+        editTextLeftDiscountOnSecondItem.setText("");
+        editTextLeftTotalWeight.setText("");
+
+        editTextProductRightName.setText("");
+        editTextRightNumberOfUnits.setText("");
+        editTextRightGramPerUnit.setText("");
+        editTextRightTotalPrice.setText("");
+        editTextRightDiscountOnSecondItem.setText("");
+        editTextRightTotalWeight.setText("");
 
     }
 
@@ -151,6 +208,18 @@ public class FragmentCompare extends Fragment implements View.OnClickListener, V
                 message = "Both products are equal at price per value";
             }
 
+            mUndo.push(editTextProductLeftName.getText().toString());
+            mUndo.push(editTextLeftNumberOfUnits.getText().toString());
+            mUndo.push(editTextLeftGramPerUnit.getText().toString());
+            mUndo.push(editTextLeftTotalPrice.getText().toString());
+            mUndo.push(editTextProductRightName.getText().toString());
+            mUndo.push(editTextProductLeftName.getText().toString());
+            mUndo.push(editTextRightNumberOfUnits.getText().toString());
+            mUndo.push(editTextRightGramPerUnit.getText().toString());
+            mUndo.push(editTextRightTotalPrice.getText().toString());
+            mUndo.push(editTextLeftDiscountOnSecondItem.getText().toString());
+            mUndo.push(editTextRightDiscountOnSecondItem.getText().toString());
+
             // display the message
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
             alertDialogBuilder.setMessage(message).setTitle("Compare result");
@@ -160,7 +229,7 @@ public class FragmentCompare extends Fragment implements View.OnClickListener, V
 
 
         }catch (NumberFormatException e){
-
+            e.printStackTrace();
         }
 
     }
